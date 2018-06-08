@@ -30,11 +30,11 @@ Formz is a super lightweight framework for creating fully customizable forms wit
 - Swift 4+
 
 # Installation
-
-## Carthage
 Add the following to your Cartfile:
 
-```github "jsahoo/Formz"```
+```
+github "jsahoo/Formz"
+```
 
  and run `carthage update`.
 
