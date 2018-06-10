@@ -96,6 +96,7 @@ Cuztomizations can either be applied at the form-level (so that all form fields 
 formView.titleFont = UIFont(name: "AvenirNext-Regular", size: 14)!
 formView.textFieldFont = UIFont(name: "AvenirNext-Regular", size: 17)!
 formView.helperFont = UIFont(name: "AvenirNext-Regular", size: 10)!
+formView.textFieldTextColor = .black
 formView.activeTintColor = .black
 formView.inactiveTintColor = .darkGray
 formView.validationFailureTintColor = .red
