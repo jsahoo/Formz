@@ -61,6 +61,7 @@ public class FormTextField: UIView {
                               height: borderThickness)
         textFieldBorder = border
         textField.addSubview(border)
+        textField.clearButtonMode = .whileEditing
         applyColors()
     }
 
