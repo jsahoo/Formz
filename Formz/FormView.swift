@@ -18,6 +18,8 @@ public class FormView: UIStackView {
     /// The default helper font for all `FormTextFields` added to this `FormView`.
     public var helperFont = UIFont.systemFont(ofSize: 10)
 
+    /// The default color of the text field's text for all `FormTextFields` added to this `FormView`.
+    public var textFieldTextColor = UIColor.black
     /// The default color of the title label and text field border when the text field is active for all `FormTextFields` added to this `FormView`.
     public var activeTintColor = UIColor.black
     /// The default color of the title label and text field border when the text field is inactive for all `FormTextFields` added to this `FormView`.
@@ -46,6 +48,7 @@ public class FormView: UIStackView {
         formTextField.titleLabel.font = titleFont
         formTextField.textField.font = textFieldFont
         formTextField.helperTextLabel.font = helperFont
+        formTextField.textFieldTextColor = textFieldTextColor
         formTextField.activeTintColor = activeTintColor
         formTextField.inactiveTintColor = inactiveTintColor
         formTextField.validationFailureTintColor = validationFailureTintColor

@@ -20,6 +20,8 @@ public class FormTextField: UIView {
     }
 
     public var identifier: String?
+    /// The color of the text field's text.
+    public var textFieldTextColor = UIColor.black
     /// The color of the title label and text field border when the text field is active.
     public var activeTintColor = UIColor.black
     /// The color of the title label and text field border when the text field is inactive.
@@ -68,6 +70,7 @@ public class FormTextField: UIView {
         titleLabel.textColor = inactiveTintColor
         textFieldBorder?.backgroundColor = inactiveTintColor
         textField.tintColor = cursorTintColor ?? activeTintColor
+        textField.textColor = textFieldTextColor
     }
 
     @IBAction func editingDidBegin(_ sender: UITextField) {

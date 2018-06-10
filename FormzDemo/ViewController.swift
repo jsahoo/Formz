@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         formView.titleFont = UIFont(name: "AvenirNext-Regular", size: 14)!
         formView.textFieldFont = UIFont(name: "AvenirNext-Regular", size: 17)!
         formView.helperFont = UIFont(name: "AvenirNext-Regular", size: 10)!
+        formView.textFieldTextColor = .black
         formView.activeTintColor = .black
         formView.inactiveTintColor = .darkGray
         formView.validationFailureTintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
