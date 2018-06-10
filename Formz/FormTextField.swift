@@ -20,13 +20,11 @@ public class FormTextField: UIView {
     }
 
     public var identifier: String?
-    /// The color of the text field's text.
-    public var textFieldTextColor = UIColor.black
-    /// The color of the title label and text field border when the text field is active.
+    /// The color of the title, helper text, and text field border when the text field is active.
     public var activeTintColor = UIColor.black
-    /// The color of the title label and text field border when the text field is inactive.
+    /// The color of the title, helper text, and text field border when the text field is inactive.
     public var inactiveTintColor = UIColor.gray
-    /// The color of the title label and text field border when the text field's contents are invalid.
+    /// The color of the title, helper text, and text field border when the text field's contents are invalid.
     public var validationFailureTintColor = UIColor.red
     /// The color of the cursor. Uses the `activeTintColor` by default.
     public var cursorTintColor: UIColor?
@@ -69,22 +67,28 @@ public class FormTextField: UIView {
     internal func applyColors() {
         titleLabel.textColor = inactiveTintColor
         textFieldBorder?.backgroundColor = inactiveTintColor
+        textField.textColor = activeTintColor
+        helperTextLabel.textColor = inactiveTintColor
         textField.tintColor = cursorTintColor ?? activeTintColor
-        textField.textColor = textFieldTextColor
     }
 
     @IBAction func editingDidBegin(_ sender: UITextField) {
         titleLabel.textColor = activeTintColor
         textFieldBorder?.backgroundColor = activeTintColor
+        textField.textColor = activeTintColor
+        helperTextLabel.textColor = activeTintColor
     }
 
     @IBAction func editingDidEnd(_ sender: UITextField) {
         if validationRule(textField.text) == true {
             titleLabel.textColor = inactiveTintColor
             textFieldBorder?.backgroundColor = inactiveTintColor
+            helperTextLabel.textColor = inactiveTintColor
         } else {
             titleLabel.textColor = validationFailureTintColor
             textFieldBorder?.backgroundColor = validationFailureTintColor
+            textField.textColor = validationFailureTintColor
+            helperTextLabel.textColor = validationFailureTintColor
         }
     }
 }

@@ -18,13 +18,11 @@ public class FormView: UIStackView {
     /// The default helper font for all `FormTextFields` added to this `FormView`.
     public var helperFont = UIFont.systemFont(ofSize: 10)
 
-    /// The default color of the text field's text for all `FormTextFields` added to this `FormView`.
-    public var textFieldTextColor = UIColor.black
-    /// The default color of the title label and text field border when the text field is active for all `FormTextFields` added to this `FormView`.
+    /// The default color of the title, helper text, and text field border when the text field is active for all `FormTextFields` added to this `FormView`.
     public var activeTintColor = UIColor.black
-    /// The default color of the title label and text field border when the text field is inactive for all `FormTextFields` added to this `FormView`.
+    /// The default color of the title, helper text, and text field border when the text field is inactive for all `FormTextFields` added to this `FormView`.
     public var inactiveTintColor = UIColor.gray
-    /// The default color of the title label and text field border when the text field's contents are invalid for all `FormTextFields` added to this `FormView`.
+    /// The default color of the title, helper text, and text field border when the text field's contents are invalid for all `FormTextFields` added to this `FormView`.
     public var validationFailureTintColor = UIColor.red
     /// The default color of the cursor for all `FormTextFields` added to this `FormView`. Uses the `activeTintColor` by default.
     public var cursorTintColor: UIColor?
@@ -48,11 +46,10 @@ public class FormView: UIStackView {
         formTextField.titleLabel.font = titleFont
         formTextField.textField.font = textFieldFont
         formTextField.helperTextLabel.font = helperFont
-        formTextField.textFieldTextColor = textFieldTextColor
         formTextField.activeTintColor = activeTintColor
         formTextField.inactiveTintColor = inactiveTintColor
         formTextField.validationFailureTintColor = validationFailureTintColor
-        formTextField.cursorTintColor = cursorTintColor
+        formTextField.cursorTintColor = cursorTintColor ?? activeTintColor
     }
 
     /// Validate all of the fields in the `FormView`. Returns `true` if all fields pass validation, false otherwise.
