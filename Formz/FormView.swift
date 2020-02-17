@@ -52,15 +52,15 @@ public class FormView: UIStackView {
         formTextField.cursorTintColor = cursorTintColor ?? activeTintColor
     }
 
-    /// Validate all of the fields in the `FormView`. Returns `true` if all fields pass validation, false otherwise.
-    public func validateAllFields() -> Bool {
-        var results = Set<Bool>()
+    /// Validate all of the fields in the `FormView`. Returns an array of tuples containing the identifier of the invalid field and an error message for each invalid field.
+    public func validateAllFields() -> [(String, String)] {
+        var results = [(String, String)]()
         formFields.forEach {
-            let validationResult = $0.validationRule($0.textField.text)
-            // TODO: Apply tint to the form field if it's invalid. Perhaps make a helper function updateState to encapsulate logic
-            results.insert(validationResult)
+            if let errorString = $0.validationRule($0.textField.text) {
+                results.append(($0.identifier!, errorString))
+            }
         }
-        return !results.contains(false)
+        return results
     }
 
     /// Returns the `FormTextField` for the given identifier

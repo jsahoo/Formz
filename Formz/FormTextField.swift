@@ -14,9 +14,9 @@ public class FormTextField: UIView {
     @IBOutlet public weak var textField: UITextField!
     @IBOutlet public weak var helperTextLabel: UILabel!
 
-    /// The validation logic to perform on the text field to determine whether its contents are valid or not. Return `true` if the contents are valid, `false` otherwise.
-    public var validationRule: ((String?) -> Bool) = { _ in
-        return true
+    /// The validation logic to perform on the text field to determine whether its contents are valid or not. Return an error message (String) if the contents are invalid, `nil` otherwise.
+    public var validationRule: ((String?) -> String?) = { _ in
+        return nil
     }
 
     public var identifier: String?
@@ -81,7 +81,7 @@ public class FormTextField: UIView {
     }
 
     @IBAction func editingDidEnd(_ sender: UITextField) {
-        if validationRule(textField.text) == true {
+        if validationRule(textField.text) == nil {
             titleLabel.textColor = inactiveTintColor
             textFieldBorder?.backgroundColor = inactiveTintColor
             helperTextLabel.textColor = inactiveTintColor
